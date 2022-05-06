@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 
+import Todo from './Todo';
 
 
 // Get todo from states
@@ -21,7 +22,16 @@ const TodoList = ({todos}) => {
     return (
         <div>
             {message}
-            {todos.map(todo => <p key={todo.id}>{todo.text}</p> )}
+            <div> 
+                {
+                    todos.map(todo => <Todo
+                    key={todo.id}
+                    {...todo}
+                    />)
+                }
+                    
+            </div>
+            
         </div>
     );
 }

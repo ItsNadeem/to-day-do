@@ -22,7 +22,8 @@ const AddTodo = ({onSubmit}) => {
                 if(input.value.trim()) {
                     onSubmit({
                         id,
-                        text: input.value
+                        text: input.value,
+                        completed: "false"
                     });
                     input.value = '';
                 }
@@ -33,7 +34,6 @@ const AddTodo = ({onSubmit}) => {
                 <div>
                     <input type="submit" value="Add"/>
                 </div>
-
             </form>
         </div>
     )
