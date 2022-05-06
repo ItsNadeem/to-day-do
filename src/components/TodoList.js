@@ -12,8 +12,15 @@ const mapStateToProps = (state) => {
 }
 
 const TodoList = ({todos}) => {
+
+    let message;
+    if(todos.length === 0) {
+        message = (<div> No items to work on. Great, go explore !!! </div>)
+    }
+
     return (
         <div>
+            {message}
             {todos.map(todo => <p key={todo.id}>{todo.text}</p> )}
         </div>
     );
