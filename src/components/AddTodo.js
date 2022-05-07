@@ -27,12 +27,14 @@ const AddTodo = ({onSubmit}) => {
                     });
                     input.value = '';
                 }
-            }}>
-                <div>
+            }}
+            className="row"
+            >
+                <div className="col padding-right-small">
                     <input type="text" placeholder="New Todo" ref={node => { input = node }} />
                 </div>
-                <div>
-                    <input type="submit" value="Add"/>
+                <div className="col padding-left-small">
+                    <input type="submit" value="Add" className="paper-btn btn-small"/>
                 </div>
             </form>
         </div>

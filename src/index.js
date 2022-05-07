@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import store from './reducers';
-
+import 'papercss/dist/paper.min.css';
 
 import App from './components/App';
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import styled from 'styled-components';
 
 
 import Todo from './Todo';
@@ -29,6 +30,11 @@ const mapStateToProps = (state) => {
     }
 }
 
+
+const List = styled.ul`
+    padding-left: 0
+`;
+
 const TodoList = ({todos, filter}) => {
 
     let message;
@@ -38,23 +44,23 @@ const TodoList = ({todos, filter}) => {
         switch(filter) {
             case FILTER_COMPLETED: text = 'Nothing completed yet.'; break;
             case FILTER_ACTIVE: text = 'Nothing to be completed.'; break;
-            default: text = 'No items to work on. Great, add new items!!!'; break;
+            default: text = 'No items to work on... Great, add new items !!!'; break;
         }
-        message = (<div> {text} </div>)
+        message = (<div className="row flex-center margin-top-large"> {text} </div>)
     }
 
     return (
         <div>
             {message}
-            <div> 
+            <List className="child-borders"> 
                 {
                     todos.map(todo => <Todo
                     key={todo.id}
                     {...todo}
                     />)
                 }    
-            </div>
-            <Filter filter={filter} />
+            </List>
+            <Filter todosLength={todos.length} filter={filter} />
             
         </div>
     );

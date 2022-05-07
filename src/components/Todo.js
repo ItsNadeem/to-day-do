@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import styled from 'styled-components';
 
 import { toggleTodo } from "../actions"; 
 
@@ -11,12 +12,26 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
+const Item = styled.li`
+    padding-left: 1em;
+    cursor: pointer;
+    overflow-wrap: break-word;
+    &:before {
+        content: ""
+    }
+`;
+
 
 const Todo = ({id, text, completed, onItemClick}) => {
     return (
-        <div key={id} onClick={e => onItemClick(id)}>
+        <Item 
+        key={id} 
+        onClick={e => onItemClick(id)}
+        className={"padding-small margin-small " + (completed ? 'background-primary' : 'shadow shadow-hover')}
+        style={completed ? {textDecoration: 'line-through'} : {}}
+        >
             {text}
-        </div>
+        </Item>
     )
 }
 
