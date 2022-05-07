@@ -23,7 +23,7 @@ const AddTodo = ({onSubmit}) => {
                     onSubmit({
                         id,
                         text: input.value,
-                        completed: "false"
+                        completed: false
                     });
                     input.value = '';
                 }

@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
 const Todo = ({id, text, completed, onItemClick}) => {
     return (
         <div key={id} onClick={e => onItemClick(id)}>
-            {text} + status: {completed}
+            {text}
         </div>
     )
 }

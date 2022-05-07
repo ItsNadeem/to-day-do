@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from "../constants/action-types";
+import { ADD_TODO, TOGGLE_TODO, CLEAR_TODOS } from "../constants/action-types";
 
 const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
 
@@ -10,17 +10,15 @@ const todos = (state = storedTodos, action) => {
         case TOGGLE_TODO:
             let modifiedTodos = state.map(todo => {
                 if(todo.id === action.id) {
-                    if (todo.completed === "false") {
-                        todo.completed = "true";
-                    } else {
-                        todo.completed = "false";
-                    }
-                    return Object.assign({}, todo, { completed: todo.completed})
+                    return Object.assign({}, todo, { completed: !todo.completed})
                 }
                 return todo;
             });
             localStorage.setItem('todos', JSON.stringify(modifiedTodos));
             return modifiedTodos;
+        case CLEAR_TODOS:
+            localStorage.removeItem('todos');
+            return [];
         default:
             return state;
     } 

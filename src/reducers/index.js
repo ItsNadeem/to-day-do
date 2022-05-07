@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todos from './todos'
+import todos from './todos';
+import filter from "./filter";
 
 const store = configureStore({
     reducer: {
-      // Define a top-level state field named `todos`, handled by `todos Reducer`
-      todos: todos
+      todos: todos,
+      filter: filter
     }
   })
   
